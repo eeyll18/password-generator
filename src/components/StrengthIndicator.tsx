@@ -1,4 +1,5 @@
 import type React from "react";
+import { motion } from "framer-motion";
 
 interface StrengthIndicatorProps {
   strengthText: string;
@@ -21,11 +22,13 @@ const StrengthIndicator: React.FC<StrengthIndicatorProps> = ({
           {strengthText}
         </span>
       </div>
-      <div className="w-full bg-slate-700 rounded-full h-2.5">
-        <div
-          className={`h-2.5 rounded-full transition-all duration-300 ${strengthColor}`}
-          style={{ width: `${strengthValue}%` }}
-        ></div>
+      <div className="w-full bg-slate-700 rounded-full h-2.5 overflow-hidden">
+        <motion.div
+          className={`h-2.5 rounded-full ${strengthColor}`}
+          initial={{ width: 0 }}
+          animate={{ width: `${strengthValue}%` }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+        ></motion.div>
       </div>
     </div>
   );
