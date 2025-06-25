@@ -24,7 +24,7 @@ function App() {
   const [includeSymbols, setIncludeSymbols] = useState<boolean>(false);
   const [copied, setCopied] = useState<boolean>(false);
 
-  const [strengthText, setStrengthText] = useState<string>("Zayıf");
+  const [strengthText, setStrengthText] = useState<string>("Weak");
   const [strengthColor, setStrengthColor] = useState<string>("bg-red-500");
   const [strengthValue, setStrengthValue] = useState<number>(0);
   const [errorMessage, setErrorMessage] = useState<string>("");
@@ -71,7 +71,7 @@ function App() {
         .then(() => {
           setCopied(true);
         })
-        .catch((err) => console.error("Kopyalama başarısız oldu: ", err));
+        .catch((err) => console.error("Failed to copy: ", err));
     }
   };
 
@@ -91,25 +91,25 @@ function App() {
   const optionsConfig: OptionConfig[] = [
     {
       id: "uppercase",
-      label: "Büyük Harf (A-Z)",
+      label: "Uppercase (A-Z)",
       checked: includeUppercase,
       setter: setIncludeUppercase,
     },
     {
       id: "lowercase",
-      label: "Küçük Harf (a-z)",
+      label: "Lowercase (a-z)",
       checked: includeLowercase,
       setter: setIncludeLowercase,
     },
     {
       id: "numbers",
-      label: "Sayılar (0-9)",
+      label: "Numbers (0-9)",
       checked: includeNumbers,
       setter: setIncludeNumbers,
     },
     {
       id: "symbols",
-      label: "Semboller (!@#...)",
+      label: "Symbols (!@#...)",
       checked: includeSymbols,
       setter: setIncludeSymbols,
     },
@@ -144,7 +144,7 @@ function App() {
                   transition={{ duration: 0.3, ease: "circOut" }}
                   className="text-sky-400 absolute inset-x-0"
                 >
-                  Kopyalandı!
+                  Copied!
                 </motion.p>
               )}
             </AnimatePresence>

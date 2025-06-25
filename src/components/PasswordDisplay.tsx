@@ -29,7 +29,7 @@ const PasswordDisplay: React.FC<PasswordDisplayProps> = ({
         type="text"
         value={password}
         readOnly
-        placeholder="Şifreniz.."
+        placeholder="Your Password.."
         variants={inputVariants}
         initial="initial"
         animate="animate"

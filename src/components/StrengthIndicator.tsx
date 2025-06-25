@@ -15,7 +15,7 @@ const StrengthIndicator: React.FC<StrengthIndicatorProps> = ({
   return (
     <div className="mb-6">
       <div className="flex justify-between items-center text-sm mb-1">
-        <span className="text-slate-400">Şifre Gücü:</span>
+        <span className="text-slate-400">Password Strength:</span>
         <span
           className={`font-semibold ${strengthColor.replace("bg-", "text-")}`}
         >

@@ -29,7 +29,7 @@ export interface GeneratedPasswordResult {
  * @returns StrengthMetrics objesi.
  */
 export const calculateStrengthMetrics = (pwd: string): StrengthMetrics => {
-  if (!pwd) return { text: "Yok", color: "bg-gray-500", value: 0 };
+  if (!pwd) return { text: "N/A", color: "bg-gray-500", value: 0 };
 
   let score = 0;
   if (pwd.length >= 16) score += 3;
@@ -41,11 +41,11 @@ export const calculateStrengthMetrics = (pwd: string): StrengthMetrics => {
   if (/[0-9]/.test(pwd)) score++;
   if (/[!@#$%^&*()_+\-=\[\]{}|;:,.<>?]/.test(pwd)) score++;
 
-  if (score <= 1) return { text: "Çok Zayıf", color: "bg-red-500", value: 20 };
-  if (score <= 2) return { text: "Zayıf", color: "bg-orange-500", value: 40 };
-  if (score <= 3) return { text: "Orta", color: "bg-yellow-500", value: 60 };
-  if (score <= 4) return { text: "Güçlü", color: "bg-green-500", value: 80 };
-  return { text: "Çok Güçlü", color: "bg-emerald-600", value: 100 };
+  if (score <= 1) return { text: "Very Weak", color: "bg-red-500", value: 20 };
+  if (score <= 2) return { text: "Weak", color: "bg-orange-500", value: 40 };
+  if (score <= 3) return { text: "Medium", color: "bg-yellow-500", value: 60 };
+  if (score <= 4) return { text: "Strong", color: "bg-green-500", value: 80 };
+  return { text: "Very Strong", color: "bg-emerald-600", value: 100 };
 };
 
 /**
@@ -71,7 +71,7 @@ export const generateNewPassword = (
   if (includeSymbols) charSet += symbolChars;
 
   if (charSet === "") {
-    return { error: "En az bir karakter tipi seçin!" };
+    return { error: "Select at least one character type!" };
   }
 
   let newPasswordGenerated: string = "";
@@ -79,7 +79,7 @@ export const generateNewPassword = (
     const crypto = window.crypto || (window as any).msCrypto;
     if (!crypto || !crypto.getRandomValues) {
       console.warn(
-        "Güvenli rastgele sayı üreteci bulunamadı. Daha az güvenli bir yöntem kullanılıyor."
+        "Secure random number generator not found. Using a less secure fallback method."
       );
       for (let i = 0; i < length; i++) {
         const randomIndex = Math.floor(Math.random() * charSet.length);
@@ -93,8 +93,8 @@ export const generateNewPassword = (
       }
     }
   } catch (error) {
-    console.error("Şifre oluşturulurken hata:", error);
-    return { error: "Şifre oluşturulurken bir hata oluştu." };
+    console.error("Error generating password:", error);
+    return { error: "An error occurred while generating the password." };
   }
   return { password: newPasswordGenerated };
 };

@@ -19,7 +19,7 @@ const PasswordLengthSlider: React.FC<PasswordLengthSliderProps> = ({
         htmlFor="length"
         className="block text-sm font-medium text-slate-300 mb-1"
       >
-        Şifre Uzunluğu:{" "}
+        Password Length:{" "}
         <span className="font-semibold text-sky-400">{length}</span>
       </label>
       <input

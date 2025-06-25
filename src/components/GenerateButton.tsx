@@ -13,13 +13,13 @@ const GenerateButton: React.FC<GenerateButtonProps> = ({ onClick }) => {
       className="mt-8 w-full bg-gradient-to-r from-sky-500 to-cyan-400 text-white font-semibold py-3 px-6 rounded-lg text-lg shadow-md flex items-center justify-center space-x-2"
       whileHover={{
         scale: 1.03,
-        boxShadow: "0px 5px 15px rgba(14, 165, 233, 0.4)", 
+        boxShadow: "0px 5px 15px rgba(14, 165, 233, 0.4)",
         transition: { duration: 0.2 },
       }}
       whileTap={{ scale: 0.97 }}
     >
       <FiRefreshCw size={20} />
-      <span>Yeni Şifre Oluştur</span>
+      <span>Generate New Password</span>
     </motion.button>
   );
 };
