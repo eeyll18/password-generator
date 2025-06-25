@@ -25,7 +25,6 @@ const PasswordDisplay: React.FC<PasswordDisplayProps> = ({
       animate="visible"
     >
       <motion.input
-        key={password}
         type="text"
         value={password}
         readOnly
