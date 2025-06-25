@@ -77,20 +77,12 @@ export const generateNewPassword = (
   let newPasswordGenerated: string = "";
   try {
     const crypto = window.crypto || (window as any).msCrypto;
-    if (!crypto || !crypto.getRandomValues) {
-      console.warn(
-        "Secure random number generator not found. Using a less secure fallback method."
-      );
-      for (let i = 0; i < length; i++) {
-        const randomIndex = Math.floor(Math.random() * charSet.length);
-        newPasswordGenerated += charSet[randomIndex];
-      }
-    } else {
-      const randomValues = new Uint32Array(length);
-      crypto.getRandomValues(randomValues);
-      for (let i = 0; i < length; i++) {
-        newPasswordGenerated += charSet[randomValues[i] % charSet.length]; // eşit olasılık
-      }
+
+    const randomValues = new Uint32Array(length);
+    crypto.getRandomValues(randomValues);
+
+    for (let i = 0; i < length; i++) {
+      newPasswordGenerated += charSet[randomValues[i] % charSet.length]; // eşit olasılık
     }
   } catch (error) {
     console.error("Error generating password:", error);
