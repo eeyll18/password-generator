@@ -39,6 +39,7 @@ const PasswordDisplay: React.FC<PasswordDisplayProps> = ({
       <motion.button
         onClick={onCopy}
         disabled={isError || !password}
+        title="Copy Password"
         transition={{ duration: 0.15 }}
         className="p-2 text-slate-400 transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed relative"
       >
