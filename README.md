@@ -1,4 +1,4 @@
-# ✨ Secure Password Generator ✨
+<!-- # ✨ Secure Password Generator ✨
 
 A modern, stylish, and secure password generator built with React, Vite, TypeScript, Tailwind CSS, and Framer Motion. This application allows users to generate strong, customizable passwords with a sleek and intuitive user interface.
 
@@ -59,4 +59,4 @@ To get a local copy up and running, follow these simple steps.
 ```bash
 npm run dev
 # or
-yarn dev
+yarn dev -->
